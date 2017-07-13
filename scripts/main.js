@@ -10,13 +10,29 @@
 */
 
 
-function handValue (hand) {
+let hand = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" ];
 
+function handValue(hand) {
 
-  return;
+  let value = 0;
+  for (var i = 0; i < hand.length; i++) {
+    if (hand[i] === "2" || hand[i] === "3" || hand[i] === "4" || hand[i] === "5" || hand[i] == "6" || hand[i] === "7" || hand[i] === "8" || hand[i] === "9" || hand[i] === "10") {
+      value += parseInt(hand[i]);
+    } else if (hand[i] === "J" || hand[i] === "Q" || hand[i] == "K") {
+      value += 10;
+    }
+  }
+  for (i = 0; i < hand.length; i++) {
+    if (hand[i] === "A" && value < 11) {
+      value += 11;
+    } else if (hand[i] === "A" && value > 11) {
+      value += 1;
+    }
+  }
+  return value;
 }
 
-console.log(handValue(hand));
+
 
 
 /* -----  Hints ------
